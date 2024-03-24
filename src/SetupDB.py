@@ -7,7 +7,14 @@ import mysql.connector as mys
 def createDB():
     
     try:
-        conn = mys.connect(host="localhost", user = "root", password = "")
+        
+        u = input(Fore.YELLOW + "Enter the username for MySQL (default : 'root'): " + Fore.RESET)
+        if u == None or u == "":
+            u = "root"
+        
+        pwd = input(Fore.YELLOW + "Enter the password for MySQL (default : ''): " + Fore.RESET)
+        
+        conn = mys.connect(host="localhost", user = u, password = pwd)
         cursor = conn.cursor()
         cursor.execute("CREATE DATABASE IF NOT EXISTS javadb")
         cursor.execute("USE javadb")
@@ -21,13 +28,11 @@ def createDB():
         time.sleep(2)
     
     except Exception as e:
-        print (Fore.RED + "Error in creating Database and Tables" + Fore.RESET)
+        print (Fore.RED + "\nError in creating Database and Tables" + Fore.RESET)
         print (Fore.RED + str(e) + Fore.RESET)
         time.sleep(2)
         
-        print(Fore.CYAN + "\nMake sure that your DB is operable, and you have updated the 'setup.py' file as well as in the Java program." + Fore.RESET)
-        time.sleep(2)
-        print(Fore.CYAN + "\nExiting the program..." + Fore.RESET)
+        print(Fore.LIGHTMAGENTA_EX + "\nMake sure that your DB is operable, and you have updated the 'setup.py' file as well as in the Java program." + Fore.RESET)
         time.sleep(2)
         exit()
 
