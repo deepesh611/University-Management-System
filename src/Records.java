@@ -11,7 +11,6 @@ public class Records extends JDialog {
     private JTextField misInput;
     private JButton searchButton;
     private JPanel RecordPlane;
-    private JTextPane ShowRecords;
     private JTable table;
     private JScrollPane scrollPane;
 
@@ -150,8 +149,6 @@ public class Records extends JDialog {
     }
 
     public static void main(String[] args) {
-        Records dialog = new Records(new User());
-        // By Default, we display all the records when the opens always
 
     }
 }

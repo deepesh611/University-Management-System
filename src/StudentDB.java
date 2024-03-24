@@ -16,11 +16,7 @@ public class StudentDB extends JDialog {
     private JButton quitButton;
     private JPanel DBPlane;
 
-    private User user;
-
     public StudentDB(User user) {
-        this.user = user;
-
         addRecordButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

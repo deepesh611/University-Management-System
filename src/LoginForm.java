@@ -90,6 +90,5 @@ public class LoginForm extends JDialog {
     }
 
     public static void main(String[] args) {
-        LoginForm dialog = new LoginForm(null);
     }
 }
