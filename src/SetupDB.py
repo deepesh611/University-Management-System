@@ -19,13 +19,14 @@ def createDB():
         cursor.execute("CREATE DATABASE IF NOT EXISTS javadb")
         cursor.execute("USE javadb")
         cursor.execute("CREATE TABLE IF NOT EXISTS users (username VARCHAR(50) PRIMARY KEY, password VARCHAR(50))")
-        cursor.execute("Insert into users values('admin', '12345')")
+        cursor.execute("INSERT INTO users (username, password) SELECT 'admin', '12345' WHERE NOT EXISTS (SELECT 1 FROM users WHERE username = 'admin' AND password = '12345');")
         cursor.execute("CREATE TABLE IF NOT EXISTS students (MIS INT PRIMARY KEY, Name VARCHAR(200), Batch VARCHAR(50), Phone varchar(50), Email VARCHAR(50))")
         conn.commit()
         conn.close()
         
-        print (Fore.GREEN + "Database and Tables created successfully" + Fore.RESET)
-        time.sleep(2)
+        print (Fore.GREEN + "\nDatabase and Tables created successfully." + Fore.RESET)
+        time.sleep(1)
+        input(Fore.LIGHTMAGENTA_EX + "\nPress Enter to Exit..." + Fore.RESET)
     
     except Exception as e:
         print (Fore.RED + "\nError in creating Database and Tables" + Fore.RESET)

@@ -13,13 +13,10 @@ if [ $? -ne 0 ]; then
   echo -e "\033[0;31mError:\033[0m \033[1;31mFailed to install packages from requirements.txt\033[0m"
   exit 1
 fi
-echo -e "\033[0;32mPackages installed\n\033[0m"
+echo -e "\n\033[0;32mPackages installed\n\033[0m"
 
 sleep 1
 
 # Run the SetupDB file
 echo -e "\033[0;34mSetting up your database...\033[0m"
 python ./src/SetupDB.py
-
-echo -e "\033[0;32m\nPress Enter to Continue...\033[0m"
-read
